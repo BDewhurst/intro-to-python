@@ -8,7 +8,7 @@ from lib.helpers import check_that_these_are_equal
 
 # For example:
 
-# * Getting the price of each in a list of products
+# * Getting the price o# Add each number to the sumf each in a list of products
 # * Making each in a list of words uppercase
 # * Finding the first letter of each in a list of words
 
@@ -35,7 +35,11 @@ print("Function: add_one_hundred_to_numbers")
 
 # Return a new list of each number with 100 added
 def add_one_hundred_to_numbers(numbers):
-  pass
+  hundred = []
+  for number in numbers: 
+    new_number = number + 100
+    hundred.append(new_number)
+  return hundred
 
 check_that_these_are_equal(
   add_one_hundred_to_numbers([1, 2, 3, 4]), [101, 102, 103, 104])
