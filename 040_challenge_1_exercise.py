@@ -30,7 +30,43 @@ print("")
 print("Function: report_long_words")
 
 def report_long_words(words):
-  pass
+  big_words = find_words_over_ten(words)
+  get_rid_of_hyphens = hyphens(big_words)
+  make_elipsis = make_elipsis_for_big_words(get_rid_of_hyphens)
+  final_words = "These words are quite long: " + ", ".join(make_elipsis)
+  return final_words
+ 
+
+def find_words_over_ten(words):
+  big_words = []
+  for word in words:
+    if len(word) > 10:
+      big_words.append(word)
+  return big_words
+
+
+def hyphens(big_words):
+  non_hyphenated = []
+  hyphenated = []
+  for word in big_words:
+    if '-' in word:
+      hyphenated.append(word)
+    else:
+      non_hyphenated.append(word)
+  return non_hyphenated
+
+
+def make_elipsis_for_big_words(big_words):
+  big_words_with_elipsis = []
+  for big_word in big_words:
+    if len(big_word) > 15:
+      big_words_with_elipsis.append(big_word[:15] + '...')
+    else:
+      big_words_with_elipsis.append(big_word)
+  return big_words_with_elipsis
+
+
+
 
 check_that_these_are_equal(
   report_long_words([
